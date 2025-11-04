@@ -17,7 +17,9 @@ mongoose
 
 
 app.get("/", (req, res) => {
-  res.send("Server is running and connected to MongoDB");
+  res.send("Welcome to CRM Backend");
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
