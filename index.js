@@ -1,11 +1,20 @@
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const leadRoutes = require("./routes/leadRoutes");
+const invoiceRoutes = require("./routes/invoiceRoutes");
 
 dotenv.config();
 
-const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//leads
+app.use("/api/leads", leadRoutes);
+
+//invoices
+app.use("/api/invoices", invoiceRoutes);
 
 const PORT = process.env.PORT || 8080;
 const MONGO_URI = process.env.MONGO_URI;
